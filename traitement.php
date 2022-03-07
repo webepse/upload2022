@@ -53,8 +53,12 @@
                     'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
                     $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier); // preg_replace remplace tout ce qui n'est pas un KK normal en tiret
 
+                    // gestion des conflits 
+
+                    $fichiercpt = rand().$fichier;
+
                     // déplacement du fichier dans le bon dossier avec le bon nom
-                    if(move_uploaded_file($_FILES['fichier']['tmp_name'], $dossier.$fichier))
+                    if(move_uploaded_file($_FILES['fichier']['tmp_name'], $dossier.$fichiercpt))
                     {
                         echo "ok";
                     }else{
